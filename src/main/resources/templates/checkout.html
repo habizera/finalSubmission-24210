@@ -190,8 +190,12 @@
                             </li>
                         </ul>
 
-                        <form action="" method="post" th:action="@{/payNow}" >
-                            <button type="submit"  class="btn btn-primary btn-block waves-effect waves-light">Pay Now(Email will be sent)</button>
+                        <form method="post" th:action="@{/payNow}" >
+                            <div class="md-form md-outline mt-2">
+                                <label for="form19">Email address</label>
+                                <input type="email" name="email" required id="email" class="form-control">
+                            </div>
+                            <button type="submit"  class="btn btn-primary btn-block waves-effect waves-light">Pay Now (email will be sent)</button>
                         </form>
 
                     </div>
