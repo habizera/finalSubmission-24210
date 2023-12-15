@@ -25,4 +25,11 @@ public class ProductService {
     public List<Product> getAllProductsByCategoryId(int id){
         return productRepository.findAllByCategory_Id(id);
     }
+    public List<Product> searchProduct(String name){
+        if(name != null) {
+            return productRepository.searchAllByNameContainingIgnoreCase(name);
+        }else{
+            return productRepository.findAll();
+        }
+    };
 }

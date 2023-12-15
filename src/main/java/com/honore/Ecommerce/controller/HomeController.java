@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -23,9 +24,9 @@ public class HomeController {
     }
 
     @GetMapping("/shop")
-    public String shop(Model model){
+    public String shop(Model model, @RequestParam(value = "search", required = false) String search){
         model.addAttribute("categories", categoryService.getAllCategory());
-        model.addAttribute("products", productService.getAllProduct());
+        model.addAttribute("products", productService.searchProduct(search));
         model.addAttribute("cartCount", GlobalData.cart.size());
 
         return "shop";
@@ -46,19 +47,4 @@ public class HomeController {
         return "viewProduct";
     }
 
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
