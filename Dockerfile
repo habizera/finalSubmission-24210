@@ -29,9 +29,9 @@ WORKDIR /app
 
 COPY --from=build /app/target/Ecommerce-0.0.1-SNAPSHOT.jar /app/Ecommerce.jar
 
-EXPOSE 9090
+EXPOSE 5050
 
 CMD ["java", "-Xmx512m", "-jar", "Ecommerce.jar"]
 
 # Optional: Health check
-HEALTHCHECK CMD curl --fail http://localhost:9090/actuator/health || exit 1
+HEALTHCHECK CMD curl --fail http://https:/e-commerce-web-8aku.onrender.com/actuator/health || exit 1
